@@ -1,0 +1,22 @@
+import re
+
+words = ["running","played","cats","beautiful"]
+
+for word in words:
+    if re.search(r'ing$', word):
+        tag = "VBG"
+    elif re.search(r'ed$', word):
+        tag = "VBD"
+    elif re.search(r's$', word):
+        tag = "NNS"
+    else:
+        tag = "JJ"
+
+    print(word,"->",tag)
+
+OUTPUT
+
+running -> VBG
+played -> VBD
+cats -> NNS
+beautiful -> JJ
