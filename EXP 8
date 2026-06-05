@@ -1,0 +1,12 @@
+tag_prob = {
+    "book":{"NN":0.8,"VB":0.2},
+    "run":{"VB":0.7,"NN":0.3}
+}
+
+for word in tag_prob:
+    tag = max(tag_prob[word], key=tag_prob[word].get)
+    print(word,"->",tag)
+
+OUTPUT 
+book -> NN
+run -> VB
