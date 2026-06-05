@@ -1,0 +1,40 @@
+import nltk
+from nltk.stem import PorterStemmer
+
+# Create Porter Stemmer object
+ps = PorterStemmer()
+
+# List of words
+words = [
+    "running",
+    "runner",
+    "studies",
+    "studying",
+    "flies",
+    "flying",
+    "playing",
+    "played",
+    "happily",
+    "happiness"
+]
+
+print("Original Word\tStemmed Word")
+print("-" * 30)
+
+for word in words:
+    stemmed_word = ps.stem(word)
+    print(f"{word}\t\t{stemmed_word}")
+
+OUTPUT 
+Original Word   Stemmed Word
+------------------------------
+running         run
+runner          runner
+studies         studi
+studying        studi
+flies           fli
+flying          fli
+playing         play
+played          play
+happily         happili
+happiness       happi
