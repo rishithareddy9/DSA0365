@@ -1,0 +1,47 @@
+import random
+from collections import defaultdict
+
+# Sample training text
+text = """
+natural language processing is a branch of artificial intelligence
+artificial intelligence helps machines understand language
+natural language processing enables text generation
+"""
+
+# Tokenize text into words
+words = text.split()
+
+# Build Bigram Model
+bigrams = defaultdict(list)
+
+for i in range(len(words) - 1):
+    current_word = words[i]
+    next_word = words[i + 1]
+    bigrams[current_word].append(next_word)
+
+# Function to generate text
+def generate_text(start_word, length=10):Generated Text:
+natural language processing enables text generation
+    current_word = start_word
+    generated = [current_word]
+
+    for _ in range(length - 1):
+        if current_word in bigrams:
+            next_word = random.choice(bigrams[current_word])
+            generated.append(next_word)
+            current_word = next_word
+        else:
+            break
+
+    return " ".join(generated)
+
+# Generate text
+start_word = "natural"
+generated_text = generate_text(start_word, 12)
+
+print("Generated Text:")
+print(generated_text)
+
+OUTPUT
+Generated Text:
+natural language processing enables text generation
