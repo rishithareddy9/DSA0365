@@ -1,0 +1,14 @@
+subjects = {"he":"singular","they":"plural"}
+verbs = {"runs":"singular","run":"plural"}
+
+subject = "he"
+verb = "runs"
+
+if subjects[subject] == verbs[verb]:
+    print("Agreement Correct")
+else:
+    print("Agreement Error")
+
+OUTPUT
+
+Agreement Correct
