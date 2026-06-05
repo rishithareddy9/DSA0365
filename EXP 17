@@ -1,0 +1,13 @@
+from nltk.corpus import wordnet as wn
+
+for syn in wn.synsets("bank")[:2]:
+    print(syn.name())
+    print(syn.definition())
+
+OUTPUT 
+
+bank.n.01
+sloping land beside a body of water
+
+bank.n.02
+financial institution
