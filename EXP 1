@@ -1,0 +1,32 @@
+import re
+
+# Sample text
+text = "My email is student123@gmail.com and my phone number is 9876543210."
+
+# 1. Search for an email address
+email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b'
+email = re.search(email_pattern, text)
+
+if email:
+    print("Email found:", email.group())
+
+# 2. Search for a phone number (10 digits)
+phone_pattern = r'\b\d{10}\b'
+phone = re.search(phone_pattern, text)
+
+if phone:
+    print("Phone number found:", phone.group())
+
+# 3. Find all words containing digits
+digit_words = re.findall(r'\w*\d+\w*', text)
+print("Words containing digits:", digit_words)
+
+# 4. Check if a specific pattern exists
+if re.search(r'gmail\.com', text):
+    print("Gmail address detected.")
+
+OUTUT 
+Email found: student123@gmail.com
+Phone number found: 9876543210
+Words containing digits: ['student123', '9876543210']
+Gmail address detected.
