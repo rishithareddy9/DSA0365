@@ -1,0 +1,55 @@
+def pluralize(noun):
+    # State q0: Start state
+
+    # Rule 1: Nouns ending in s, x, z, ch, sh
+    if noun.endswith(("s", "x", "z", "ch", "sh")):
+        state = "q1"
+        plural = noun + "es"
+
+    # Rule 2: Nouns ending in consonant + y
+    elif noun.endswith("y") and len(noun) > 1 and noun[-2].lower() not in "aeiou":
+        state = "q2"
+        plural = noun[:-1] + "ies"
+
+    # Rule 3: Default case
+    else:
+        state = "q3"
+        plural = noun + "s"
+
+    return plural, state
+
+
+# Test nouns
+nouns = [
+    "cat",
+    "dog",
+    "bus",
+    "box",
+    "church",
+    "dish",
+    "baby",
+    "city",
+    "toy",
+    "boy"
+]
+
+print("Singular -> Plural")
+print("-" * 25)
+
+OUTPUT 
+Singular -> Plural
+-------------------------
+cat        -> cats       (q3)
+dog        -> dogs       (q3)
+bus        -> buses      (q1)
+box        -> boxes      (q1)
+church     -> churches   (q1)
+dish       -> dishes     (q1)
+baby       -> babies     (q2)
+city       -> cities     (q2)
+toy        -> toys       (q3)
+boy        -> boys       (q3)
+
+for noun in nouns:
+    plural, state = pluralize(noun)
+    print(f"{noun:10} -> {plural:10} ({state})")
