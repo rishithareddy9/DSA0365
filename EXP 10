@@ -1,0 +1,17 @@
+sentence = ["The","boy","is","running"]
+
+tags = ["NN"] * len(sentence)
+
+for i,word in enumerate(sentence):
+    if word.endswith("ing"):
+        tags[i] = "VBG"
+
+for word,tag in zip(sentence,tags):
+    print(word,"->",tag)
+
+OUTPUT 
+
+The -> NN
+boy -> NN
+is -> NN
+running -> VBG
