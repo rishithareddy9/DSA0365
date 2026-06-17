@@ -1,0 +1,27 @@
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+documents = [
+    "Artificial Intelligence is transforming healthcare",
+    "Machine Learning is a subset of AI",
+    "Healthcare uses AI for diagnosis"
+]
+
+query = ["AI in healthcare"]
+
+vectorizer = TfidfVectorizer()
+
+tfidf_matrix = vectorizer.fit_transform(documents + query)
+
+similarity = cosine_similarity(
+    tfidf_matrix[-1],
+    tfidf_matrix[:-1]
+)
+
+for i, score in enumerate(similarity[0]):
+    print(f"Document {i+1}: {score:.3f}")
+
+OUTPUT
+Document 1: 0.432
+Document 2: 0.156
+Document 3: 0.512
