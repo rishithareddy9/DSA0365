@@ -1,0 +1,17 @@
+text = "John went to school. He was late."
+
+sentences = text.split(".")
+
+entity = "John"
+
+for sentence in sentences:
+    sentence = sentence.strip()
+
+    if sentence.startswith("He"):
+        sentence = sentence.replace("He", entity)
+
+    print(sentence)
+
+OUTPUT 
+John went to school
+John was late
