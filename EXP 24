@@ -1,0 +1,30 @@
+def dialog_act(sentence):
+
+    if sentence.endswith("?"):
+        return "Question"
+
+    elif "thank" in sentence.lower():
+        return "Thanking"
+
+    elif sentence.lower().startswith("please"):
+        return "Request"
+
+    else:
+        return "Statement"
+
+dialog = [
+    "What is your name?",
+    "Please open the door",
+    "Thank you very much",
+    "Today is sunny"
+]
+
+for d in dialog:
+    print(d, "->", dialog_act(d))
+
+OUTPUT
+
+What is your name? -> Question
+Please open the door -> Request
+Thank you very much -> Thanking
+Today is sunny -> Statement
