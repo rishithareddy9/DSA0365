@@ -1,0 +1,21 @@
+import nltk
+
+sentence = "The intelligent doctor examined the patient carefully."
+
+tokens = nltk.word_tokenize(sentence)
+pos_tags = nltk.pos_tag(tokens)
+
+grammar = "NP: {<DT>?<JJ>*<NN>}"
+
+chunk_parser = nltk.RegexpParser(grammar)
+tree = chunk_parser.parse(pos_tags)
+
+print(tree)
+
+for subtree in tree.subtrees():
+    if subtree.label() == 'NP':
+        print("Noun Phrase:", " ".join(word for word, tag in subtree.leaves()))
+
+OUTPUT
+Noun Phrase: The intelligent doctor
+Noun Phrase: the patient
