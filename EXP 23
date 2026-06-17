@@ -1,0 +1,25 @@
+from nltk.tokenize import sent_tokenize, word_tokenize
+
+text = """
+Artificial Intelligence is growing rapidly.
+Machine Learning is a branch of AI.
+Deep Learning is a subset of Machine Learning.
+"""
+
+sentences = sent_tokenize(text)
+
+overlap_scores = []
+
+for i in range(len(sentences)-1):
+    words1 = set(word_tokenize(sentences[i].lower()))
+    words2 = set(word_tokenize(sentences[i+1].lower()))
+
+    overlap = len(words1.intersection(words2))
+    overlap_scores.append(overlap)
+
+coherence = sum(overlap_scores) / len(overlap_scores)
+
+print("Coherence Score:", coherence)
+
+OUTPUT 
+Coherence Score: 2.0
